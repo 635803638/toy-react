@@ -6,8 +6,8 @@ class ElementWrapper {
     setAttribute(name, value) {
         this.root.setAttribute(name, value)
     }
-    appendChild(compoent) {
-        this.root.appendChild(compoent.root)
+    appendChild(component) {
+        this.root.appendChild(component.root)
     }
 }
 // 文本节点
@@ -32,9 +32,8 @@ export class Component {
     get root() {
         if (!this._root) {
             this._root = this.render().root;
-        } else {
-            return this._root;
         }
+        return this._root;
 
     }
 }
@@ -75,8 +74,5 @@ export function createElement(type, atrributes, ...children) {
 }
 
 export function render(component, parenetElement) {
-    console.log(component);
-    console.log(parenetElement);
-
     parenetElement.appendChild(component.root);
 }
